@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ConferencesController;
 
 
 /*
@@ -14,8 +15,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/table', function () {
-    return view('table');
-});
+    return view('home.table');
+})->name('table');
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home.welcome');
+})->name('home');
+
+Route::resource('conferences', ConferencesController::class)->only(['index', 'show']);
