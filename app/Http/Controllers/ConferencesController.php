@@ -70,4 +70,9 @@ class ConferencesController extends Controller
     {
         return $this->count()>0;
     }
+    public function __construct()
+    {
+        // Require authentication for all methods except index and show
+        $this->middleware('auth')->except(['index', 'show']);
+    }
 }

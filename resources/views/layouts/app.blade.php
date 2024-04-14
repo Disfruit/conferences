@@ -5,28 +5,6 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <style>
-        .topnav {
-            background-color: #6c6ade;
-            overflow: hidden;
-        }
-
-        /* Style the links inside the navigation bar */
-        .topnav a {
-            float: left;
-            color: #ffffff;
-            text-align: center;
-            padding: 14px 16px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .topnav a:link,
-        .topnav a:visited,
-        .topnav a:hover,
-        .topnav a:active{
-            color: #ffffff;
-        }
-    </style>
     <title>Laravel project - @yield('title')</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
     <script src="{{ asset('js/app.js') }}"></script>
@@ -44,15 +22,25 @@
 </head>
 <body>
 <div class="topnav">
-    <a href="/conferences" >Conferences</a>
-    <a href="/table">About</a>
-
-
+    <div class="links">
+        <a href="/conferences">Conferences</a>
+        <a href="/about">About</a>
+    </div>
+    <div class="logout-container">
+        @guest
+            <a href="{{route('login') }}" class="logout">Sign in</a>
+        @else
+            <a href="{{route('logout') }}"
+               onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="logout">Sign out
+                ({{auth()->user()->name}})</a>
+            <form action="{{route('logout') }}" method="post" id="logout-form" class="d-none">
+                @csrf
+            </form>
+        @endguest
+    </div>
 </div>
 <div>
     @yield('content')
-
 </div>
 </body>
 </html>
-

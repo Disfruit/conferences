@@ -47,7 +47,7 @@
         color: #ffffff;
         text-align: right; /* Align button container to the right */
         margin-top: 15px; /* Add margin at the top */
-        margin-right: 20px; /* Adjust right margin to move the button slightly to the left */
+        margin-left: 10px; /* Adjust right margin to move the button slightly to the left */
         cursor: pointer;
     }
 </style>
@@ -55,9 +55,11 @@
     @if(session('status'))
         <div style="background-color: darkred; color: white;">{{session('status')}}</div>
     @endif
-    <div style="text-align: right; margin-bottom: 10px;">
+    @if(auth()->check())
+    <div style="text-align: left; margin-bottom: 10px;">
         <a href="{{route('conferences.create') }}"><button type="button" class="create-button-container">Create Conference</button></a>
     </div>
+    @endif
     <div class="conference-list">
         @foreach($conferences as $conference)
             <div class="conference-item">
@@ -67,6 +69,7 @@
                     </a>
                     <p>{{$conference['date']}}, {{$conference['city']}}</p>
                 </div>
+                @if(auth()->check())
                 <div class="btn-container">
                     <a href="{{route('conferences.edit', ['conference' => $conference['id']]) }}"><button type="button" class="btn">Edit</button></a>
                     <form action="{{route('conferences.destroy', ['conference' => $conference['id']]) }}" method="POST">
@@ -75,6 +78,7 @@
                         <button type="submit" class="btn delete">Delete</button>
                     </form>
                 </div>
+                @endif
             </div>
         @endforeach
     </div>

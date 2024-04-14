@@ -1,12 +1,4 @@
 @extends('layouts.app')
-<style>
-    .conference {
-        background-color: #ffffff; /* White background */
-        text-align: center;
-        padding: 20px; /* Add padding for spacing */
-    }
-
-</style>
 
 @section('content')
     @if(session('status'))
@@ -14,8 +6,9 @@
     @endif
 
     <div class="conference">
-        <h1>{{$conferences['title']}}</h1>
-        <p>{{$conferences['description']}}</p>
-        <p>{{$conferences['date']}}, {{$conferences['city']}}</p>
+        <br>
+        <h1 align="center">{{$conferences['title']}}</h1>
+        <p align="center">{{$conferences['description']}}</p>
+        <p align="center">{{$conferences['date']}}, {{$conferences['city']}}</p>
     </div>
 @endsection

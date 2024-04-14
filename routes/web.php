@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use Illuminate\Support\Facades\Route;
 use \App\Http\Controllers\ConferencesController;
+use Illuminate\Support\Facades\Auth;
 
 
 /*
@@ -14,19 +16,15 @@ use \App\Http\Controllers\ConferencesController;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/table', function () {
-    return view('home.table');
-})->name('table');
+Route::get('/about', function () {
+    return view('home.about');
+})->name('about');
 Route::get('/', function () {
-    return view('home.welcome');
-})->name('home');
+    return redirect()->route('conferences.index');
+});
 
-Route::resource('conferences', ConferencesController::class)->only([
-    'index',
-    'show',
-    'create',
-    'store',
-    'edit',
-    'update',
-    'destroy'
-]);
+Route::resource('conferences', ConferencesController::class);
+
+Route::get('login', [LoginController::class, 'showLoginForm'])->name('login.form');
+Route::post('login', [LoginController::class, 'login'])->name('login');
+Route::post('logout', [LoginController::class, 'logout'])->name('logout');
