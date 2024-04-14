@@ -21,4 +21,12 @@ Route::get('/', function () {
     return view('home.welcome');
 })->name('home');
 
-Route::resource('conferences', ConferencesController::class)->only(['index', 'show']);
+Route::resource('conferences', ConferencesController::class)->only([
+    'index',
+    'show',
+    'create',
+    'store',
+    'edit',
+    'update',
+    'destroy'
+]);

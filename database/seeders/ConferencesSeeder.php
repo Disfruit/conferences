@@ -16,16 +16,16 @@ class ConferencesSeeder extends Seeder
     {
         (new Conference())->insert([
             [
-            'title' => Lorem::sentence(10),
-            'description' => Lorem::text(),
-            'date' => date('Y-m-d'),
-            'city' => Lorem::sentence(3)
-            ],
-            [
-                'title' => Lorem::sentence(10),
+                'title' => Lorem::sentence(3),
                 'description' => Lorem::text(),
                 'date' => date('Y-m-d'),
-                'city' => Lorem::sentence(3)
+                'city' => Lorem::sentence(2)
+            ],
+            [
+                'title' => Lorem::sentence(3),
+                'description' => Lorem::text(),
+                'date' => date('Y-m-d'),
+                'city' => Lorem::sentence(2)
             ]
         ]);
     }

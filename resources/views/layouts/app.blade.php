@@ -20,20 +20,38 @@
             text-decoration: none;
             font-size: 18px;
         }
+        .topnav a:link,
+        .topnav a:visited,
+        .topnav a:hover,
+        .topnav a:active{
+            color: #ffffff;
+        }
     </style>
     <title>Laravel project - @yield('title')</title>
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ asset('js/app.js') }}"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    @section('scripts')
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                flatpickr('.datepicker', {
+                    dateFormat: 'Y-m-d' // Customize date format if needed
+                });
+            });
+        </script>
+    @endsection
 </head>
 <body>
 <div class="topnav">
-    <a class="active" href="/" >Home</a>
-    <a href="/table">News</a>
-    <a disabled="">About</a>
+    <a href="/conferences" >Conferences</a>
+    <a href="/table">About</a>
 
 
 </div>
 <div>
     @yield('content')
+
 </div>
 </body>
 </html>
