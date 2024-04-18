@@ -3,11 +3,15 @@
     .conference-list {
         background-color: #ffffff;
         padding: 10px;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .conference-item {
         background-color: #f7f7f7;
+        margin-right: 10px;
         margin-bottom: 10px;
+        width: calc(33.33% - 10px);
         padding: 20px;
         border: 2px solid #6c6ade;
         border-radius: 5px;
@@ -16,7 +20,7 @@
         align-items: center;
     }
 
-    .conference-item h2, .conference-item p {
+    .conference-item h3, .conference-item p {
         color: #3b4351;
         margin: 0;
     }
@@ -24,9 +28,6 @@
     .btn-container {
         display: flex;
         align-items: center;
-        border: 2px solid #ffffff;
-        border-radius: 5px;
-        padding: 8px 16px;
     }
 
     .btn {
@@ -59,9 +60,9 @@
         <div style="background-color: darkred; color: white;">{{session('status')}}</div>
     @endif
     @if(auth()->check())
-    <div style="text-align: right; margin-bottom: 30px; margin-right: 10px;">
-        <a href="{{route('conferences.create') }}"><button type="button" class="create-button-container">Create Conference</button></a>
-    </div>
+        <div style="text-align: right; margin-bottom: 30px; margin-right: 10px;">
+            <a href="{{route('conferences.create') }}"><button type="button" class="create-button-container">Create Conference</button></a>
+        </div>
     @endif
     <div class="conference-list">
         @foreach($conferences as $conference)
@@ -73,14 +74,14 @@
                     <p>Description: {{$conference['description']}}; Date: {{$conference['date']}}; Author: {{$conference['author']}}</p>
                 </div>
                 @if(auth()->check())
-                <div class="btn-container">
-                    <a href="{{route('conferences.edit', ['conference' => $conference['id']]) }}"><button type="button" class="btn">Edit</button></a>
-                    <form action="{{route('conferences.destroy', ['conference' => $conference['id']]) }}" method="POST">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="btn delete">Delete</button>
-                    </form>
-                </div>
+                    <div class="btn-container">
+                        <a href="{{route('conferences.edit', ['conference' => $conference['id']]) }}"><button type="button" class="btn">Edit</button></a>
+                        <form action="{{route('conferences.destroy', ['conference' => $conference['id']]) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn delete">Delete</button>
+                        </form>
+                    </div>
                 @endif
             </div>
         @endforeach
