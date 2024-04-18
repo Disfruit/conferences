@@ -19,13 +19,13 @@ class ConferencesSeeder extends Seeder
                 'title' => Lorem::sentence(3),
                 'description' => Lorem::text(),
                 'date' => date('Y-m-d'),
-                'city' => Lorem::sentence(2)
+                'author' => Lorem::sentence(1)
             ],
             [
                 'title' => Lorem::sentence(3),
                 'description' => Lorem::text(),
                 'date' => date('Y-m-d'),
-                'city' => Lorem::sentence(2)
+                'author' => Lorem::sentence(1)
             ]
         ]);
     }

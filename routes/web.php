@@ -19,9 +19,14 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/about', function () {
     return view('home.about');
 })->name('about');
+
 Route::get('/', function () {
-    return redirect()->route('conferences.index');
+    return redirect()->route('about');
 });
+
+Route::get('/conferences', function () {
+})->name('conferences.index');
+
 
 Route::resource('conferences', ConferencesController::class);
 

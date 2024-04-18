@@ -2,6 +2,6 @@
 
 @section('title','Table')
 @section('content')
-    <h1 align="center">This website was made by Julius Cirtautas ISf-22/1</h1>
-    <p align="center">The website was made using Laravel for the Internet Systems Development Frameworks course</p>
+    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+    <h1 style="text-align: center; text-decoration: underline;">This website was made by Gytis Paskevicius</h1>
 @endsection

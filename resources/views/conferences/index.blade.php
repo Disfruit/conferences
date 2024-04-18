@@ -24,6 +24,9 @@
     .btn-container {
         display: flex;
         align-items: center;
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        padding: 8px 16px;
     }
 
     .btn {
@@ -42,12 +45,12 @@
         margin-top: 16px;
     }
     .create-button-container {
-        padding: 10px 20px; /* Adjust padding as needed */
         background-color: #6c6ade;
         color: #ffffff;
         text-align: right; /* Align button container to the right */
-        margin-top: 15px; /* Add margin at the top */
-        margin-left: 10px; /* Adjust right margin to move the button slightly to the left */
+        border: 2px solid #ffffff;
+        border-radius: 5px;
+        padding: 8px 16px;
         cursor: pointer;
     }
 </style>
@@ -56,7 +59,7 @@
         <div style="background-color: darkred; color: white;">{{session('status')}}</div>
     @endif
     @if(auth()->check())
-    <div style="text-align: left; margin-bottom: 10px;">
+    <div style="text-align: right; margin-bottom: 30px; margin-right: 10px;">
         <a href="{{route('conferences.create') }}"><button type="button" class="create-button-container">Create Conference</button></a>
     </div>
     @endif
@@ -65,9 +68,9 @@
             <div class="conference-item">
                 <div>
                     <a href="{{ route('conferences.show', ['conference' => $conference['id']]) }}">
-                        <h2>{{ $conference['title'] }}</h2>
+                        <h3 style="text-decoration: underline;">{{ $conference['title'] }}</h3>
                     </a>
-                    <p>{{$conference['date']}}, {{$conference['city']}}</p>
+                    <p>Description: {{$conference['description']}}; Date: {{$conference['date']}}; Author: {{$conference['author']}}</p>
                 </div>
                 @if(auth()->check())
                 <div class="btn-container">

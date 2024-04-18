@@ -9,6 +9,6 @@
         <br>
         <h1 align="center">{{$conferences['title']}}</h1>
         <p align="center">{{$conferences['description']}}</p>
-        <p align="center">{{$conferences['date']}}, {{$conferences['city']}}</p>
+        <p align="center">{{$conferences['date']}}, {{$conferences['author']}}</p>
     </div>
 @endsection

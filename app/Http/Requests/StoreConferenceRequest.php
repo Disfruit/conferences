@@ -22,10 +22,10 @@ class StoreConferenceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'title' => 'required|max:50',
-            'description' => 'required|min:5',
+            'title' => 'required|max:30',
+            'description' => 'required|min:10',
             'date' => 'required|date',
-            'city' => 'required|max:50',
+            'author' => 'required|max:30',
         ];
     }
 }
