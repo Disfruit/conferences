@@ -50,7 +50,7 @@
         text-align: right; /* Align button container to the right */
         border: 2px solid #ffffff;
         border-radius: 5px;
-        padding: 8px 16px;
+        padding: 9px 16px;
         cursor: pointer;
     }
 </style>
